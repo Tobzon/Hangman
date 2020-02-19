@@ -8,15 +8,12 @@ import java.util.Scanner;
 public class App
 {
 
-    static char[] word;
-    static int count;
+    private static char[] word;
+    private static int count;
 
 
     public static void main( String[] args )
     {
-
-
-
 
         HangMan hm = new HangMan();
         int length = hm.getLength();
@@ -24,7 +21,6 @@ public class App
         char[] secretWord = hm.getWord();
         boolean run = false;
         count = 0;
-
 
         wordLength(length);
         while (!run) {
@@ -47,7 +43,10 @@ public class App
 
     }
     static void incorrect(){
+        int maxCount = 8;
          count++;
+         int left = maxCount - count;
+        System.out.println("You have: " + left + " guesses left\n");
     }
 
     static void correct(char c, int l, char[] array){
@@ -66,7 +65,6 @@ public class App
 
         }
 
-
     }
 
     static void check(String s, char[] sw, int l){
@@ -82,7 +80,6 @@ public class App
                     break;
                 } else if (c != sw[i] && i == l - 1){
                         incorrect();
-
                 }
 
             } else if (s.length() > diff && s.length() == l){
@@ -100,8 +97,6 @@ public class App
             }
 
         }
-
-
     }
 
     static String getStringFromUser() {
@@ -114,15 +109,11 @@ public class App
         System.out.println("\nMake an guess");
          c = getStringFromUser();
          return c;
-
-
     }
 
      static void  wordLength(int sw){
          System.out.println("Your word is " + sw + " characters long");
             System.out.print(Arrays.toString(word));
-
-
     }
 }
 
