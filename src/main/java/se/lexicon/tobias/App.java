@@ -15,9 +15,12 @@ public class App
     public static void main( String[] args )
     {
 
+
+
+
         HangMan hm = new HangMan();
         int length = hm.getLength();
-        word = new char[length];
+         word = new char[length];
         char[] secretWord = hm.getWord();
         boolean run = false;
         count = 0;
@@ -40,25 +43,27 @@ public class App
             check(guess, secretWord, length);
             System.out.println(Arrays.toString(word));
 
-
-
-
-
         }
 
     }
     static void incorrect(){
          count++;
-
     }
 
-    static void correct(char c, int sw, char[] array){
+    static void correct(char c, int l, char[] array){
 
+            int charType = Character.getType(c);
 
-        for (int i = 0; i < sw ; i++) {
-            if (array[i] == c){
+        for (int i = 0; i < l ; i++) {
+            if (charType == Character.LOWERCASE_LETTER && c == array[i] ){
                 word[i] = c;
+            } else if (charType == Character.UPPERCASE_LETTER){
+                char C = Character.toLowerCase(c);
+                if (C == array[i]){
+                    word[i] = C;
+                }
             }
+
         }
 
 
@@ -71,7 +76,8 @@ public class App
         for (int i = 0; i < l ; i++) {
             if (s.length() == diff){
                 char c = s.charAt(0);
-                if (c ==  sw[i]){
+                int charType = Character.getType(c);
+                if (charType == Character.UPPERCASE_LETTER || charType == Character.LOWERCASE_LETTER && c == sw[i]){
                     correct(c, l, sw);
                     break;
                 } else if (c != sw[i] && i == l - 1){
@@ -82,7 +88,8 @@ public class App
             } else if (s.length() > diff && s.length() == l){
                 for (int j = 0; j < l ; j++) {
                     char c = s.charAt(j);
-                    if (c == sw[j]){
+                    int charType = Character.getType(c);
+                    if (charType == Character.UPPERCASE_LETTER || charType == Character.LOWERCASE_LETTER && c == sw[j]){
                         correct(c, l, sw);
                     } else if (c != sw[j] && j == l - 1){
                         incorrect();
@@ -112,7 +119,7 @@ public class App
     }
 
      static void  wordLength(int sw){
-         System.out.println("your word is " + sw + " characters long");
+         System.out.println("Your word is " + sw + " characters long");
             System.out.print(Arrays.toString(word));
 
 
