@@ -1,7 +1,5 @@
 package se.lexicon.tobias;
 
-
-
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -71,8 +69,6 @@ public class App
                     word[i] = C;
                 }
 
-
-
             } else if (charType == Character.UPPERCASE_LETTER && i >0){
                 char C = Character.toLowerCase(c);
 
@@ -80,11 +76,7 @@ public class App
                     word[i] = C;
 
                 }
-
-
             }
-
-
         }
     }
 
@@ -101,12 +93,10 @@ public class App
              } else {
                  incorrect();
                  break;
+
              }
          }
-
-
      }
-
 
     static void charactersEqualIgnoringCase(char c1, char [] c2, int l) {
             char u1 = Character.toUpperCase(c1);
@@ -120,16 +110,10 @@ public class App
            }
            else if (x == 0 && i == l -1){
                incorrect();
-           }
-
-
-
 
            }
-
         }
-
-
+    }
 
     static void check(String s, char[] sw, int l){
 
@@ -145,12 +129,9 @@ public class App
                         scharactersEqualIgnoringCase(s, sw, l);
 
                 } else {
-                    incorrect();
+                 incorrect();
 
-
-            }
-
-
+                }
     }
 
     static String getStringFromUser() {
