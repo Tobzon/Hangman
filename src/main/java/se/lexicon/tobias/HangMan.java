@@ -10,7 +10,7 @@ public class HangMan {
  public HangMan(){
 
     String txt = "";
-    int lineNumber = (int) (Math.random()*25);
+    int lineNumber = (int) (Math.random()*24)  ;
     try {
         FileReader readFile = new FileReader("words.txt");
         BufferedReader readBuffer = new BufferedReader(readFile);
